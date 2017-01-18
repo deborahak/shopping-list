@@ -1,0 +1,46 @@
+{
+  "name": "shopping-list",
+  "version": "1.0.0",
+  "description": "This repo contains starter files for the *Shopping List App* challenge in Thinkful's Front End Web Development course.",
+  "main": "js/index.js",
+  "scripts": {
+    "mkdir": "mkdir -p build",
+    "build": "npm run clean && npm run mkdir && npm run build:html && npm run build:js",
+    "watch": "npm run watch:html",
+    "clean": "rm -rf build",
+    "build:html": "npm run clean:html && cp index.html build/",
+    "watch:html": "npm run build:html && chokidar index.html -c 'npm run build:html'",
+    "clean:html": "rm -f build/index.html",
+    "build:css": "npm run clean:css && lessc --source-map main.less build/$npm_package_name.$npm_package_version.css",
+    "watch:css": "npm run build:css && chokidar 'main.less' -c 'npm run build:css'",
+    "clean:css": "rm -f build/$npm_package_name.$npm_package_version.css build/$npm_package_name.$npm_package_version.css.map",
+    "build:js": "npm run clean:js && webpack",
+    "watch:js": "npm build:js && webpack --watch",
+    "clean:js": "rm -f build/$npm_package_name.$npm_package_version.js build/$npm_package_name.$npm_package_version.js.map"
+  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deborahak/shopping-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deborahak/shopping-list/issues"
+  },
+  "homepage": "https://github.com/deborahak/shopping-list#readme",
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "chokidar": "^1.6.1",
+    "chokidar-cli": "^1.2.0",
+    "less": "^2.7.2",
+    "webpack": "^1.14.0"
+  },
+  "dependencies": {
+    "chokidar-cli": "^1.2.0",
+    "chokidar": "^1.6.1",
+    "less": "^2.7.2"
+  }
+}
