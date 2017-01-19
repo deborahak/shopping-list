@@ -16,7 +16,7 @@ $(document).ready(function() {
             '</li>'
 
         );
-        $(this)[0].reset();
+        $("#shopping-list-entry").val("");
     });
 
     $(".shopping-list").on("click", ".shopping-item-delete", (event)=> {
